@@ -7,7 +7,7 @@ import feign.codec.ErrorDecoder;
 import java.util.Date;
 
 public class MyErrorDecoder implements ErrorDecoder {
-    private final ErrorDecoder defaultErrorDecoder = new ErrorDecoder.Default();
+    private final ErrorDecoder defaultErrorDecoder = new Default();
 
     @Override
     public Exception decode(String s, Response response) {

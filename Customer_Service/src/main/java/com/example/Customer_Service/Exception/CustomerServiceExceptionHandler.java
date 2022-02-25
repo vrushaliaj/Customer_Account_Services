@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
@@ -16,6 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@ControllerAdvice
 public class CustomerServiceExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler({CustomerNotFoundException.class})
@@ -27,27 +29,24 @@ public class CustomerServiceExceptionHandler extends ResponseEntityExceptionHand
         apiError.setTimestamp(LocalDateTime.now());
         return new ResponseEntity<>(apiError, HttpStatus.NOT_FOUND);
     }
-
     @ExceptionHandler({CustomerNotActiveException.class})
     ResponseEntity customerNotActiveException(Exception exception, ServletWebRequest request){
         ApiError apiError = new ApiError();
-        apiError.setStatus(HttpStatus.NOT_ACCEPTABLE);
+        apiError.setStatus(HttpStatus.NOT_FOUND);
         apiError.setErrors(Arrays.asList(exception.getMessage()));
         apiError.setPath(request.getDescription(false));
         apiError.setTimestamp(LocalDateTime.now());
-        return new ResponseEntity<>(apiError, HttpStatus.NOT_ACCEPTABLE);
+        return new ResponseEntity<>(apiError, HttpStatus.NOT_FOUND);
     }
-
     @ExceptionHandler({CustomerAlreadyExistsException.class})
-    ResponseEntity customerAlreadyExistsException(Exception exception, ServletWebRequest request){
+    ResponseEntity CustomerAlredyExistsException(Exception exception, ServletWebRequest request){
         ApiError apiError = new ApiError();
-        apiError.setStatus(HttpStatus.FOUND);
+        apiError.setStatus(HttpStatus.NOT_FOUND);
         apiError.setErrors(Arrays.asList(exception.getMessage()));
         apiError.setPath(request.getDescription(false));
         apiError.setTimestamp(LocalDateTime.now());
-        return new ResponseEntity<>(apiError, HttpStatus.FOUND);
+        return new ResponseEntity<>(apiError, HttpStatus.NOT_FOUND);
     }
-
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
                                                                   HttpHeaders headers, HttpStatus status,
@@ -68,5 +67,4 @@ public class CustomerServiceExceptionHandler extends ResponseEntityExceptionHand
 
         return new ResponseEntity<>(apiError, headers, apiError.getStatus());
     }
-
 }

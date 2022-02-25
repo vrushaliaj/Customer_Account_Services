@@ -7,9 +7,11 @@ import org.springframework.stereotype.Component;
 public class HystrixFallBackFactory implements FallbackFactory<AccountFeignClient> {
     @Override
     public AccountFeignClient create(Throwable cause) {
-
-        System.out.println("fallback; reason was: " + cause.getMessage());
+//        return id -> {
+//            // dummyMethod();
+//            System.out.println("fallback; reason was: " + cause.getMessage());
+//            return null;
+//        };
         return null;
     }
-
 }

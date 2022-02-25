@@ -1,4 +1,4 @@
-package com.example.Customer_Service.Model;
+package com.example.Account_Service.Model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

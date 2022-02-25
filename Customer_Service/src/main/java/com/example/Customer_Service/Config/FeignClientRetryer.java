@@ -2,11 +2,12 @@ package com.example.Customer_Service.Config;
 
 import feign.RetryableException;
 import feign.Retryer;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class FeignClientRetryer implements Retryer {
-      /* private int retryMaxAttempt;
+    private int retryMaxAttempt;
 
     private long retryInterval;
 
@@ -45,16 +46,5 @@ public class FeignClientRetryer implements Retryer {
     @Override
     public Retryer clone() {
         return new FeignClientRetryer(retryInterval, retryMaxAttempt);
-    }*/
-
-    @Override
-    public void continueOrPropagate(RetryableException e) {
-        throw e;
-    }
-
-    @Override
-    public Retryer clone() {
-        log.info("Feign retry attempt");
-        return new Retryer.Default(10000, 5000, 5);
     }
 }

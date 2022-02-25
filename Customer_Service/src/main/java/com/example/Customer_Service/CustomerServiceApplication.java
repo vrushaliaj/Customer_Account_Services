@@ -1,5 +1,6 @@
 package com.example.Customer_Service;
 
+import com.example.Customer_Service.Model.ConfigurationMsg;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,16 +12,19 @@ import org.springframework.web.client.RestTemplate;
 @EnableFeignClients
 @SpringBootApplication
 @Slf4j
+
+@EnableConfigurationProperties(ConfigurationMsg.class)
 public class CustomerServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CustomerServiceApplication.class, args);
 	}
+	/*
 	@Bean
 	//@LoadBalanced
 	public RestTemplate getRestTemplate(){
 		return new RestTemplate();
-	}
+	}*/
 
 
 }
