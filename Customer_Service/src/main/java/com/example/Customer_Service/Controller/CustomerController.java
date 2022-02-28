@@ -31,10 +31,12 @@ public class CustomerController {
     @Autowired
     AccountFeignClient accountFeignClient;
 
+    private static Logger logger = LoggerFactory.getLogger(CustomerController.class);
+
     @GetMapping("/customers")
     public ResponseEntity<List<Customer>> getAllCustomer(){
         List<Customer> list=customerServices.getCustomer();
-
+        logger.info("List of all customer");
         return new ResponseEntity<List<Customer>>(list, HttpStatus.OK);
     }
 
@@ -43,7 +45,6 @@ public class CustomerController {
         RequiredResponse  requiredResponse=customerServices.addCustomer(customer);
 
         return new ResponseEntity<RequiredResponse>(requiredResponse,HttpStatus.CREATED);
-
     }
 
 
