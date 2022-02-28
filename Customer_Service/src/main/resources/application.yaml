@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: Customer_Account
+  data:
+    mongodb:
+      database: Customer
+      port: 27017
+feign:
+  circuitbreaker:
+    enabled: true
+  client:
+    config:
+      default:
+        error-decoder: com.example.Customer_Service.Config.MyErrorDecoder
+        retryer: com.example.Customer_Service.Config.FeignClientRetryer
+        connectTimeout: 60000
+        readTimeout: 60000
+logging:
+  file:
+    name: ./src/logs/customer-service.log
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -1,0 +1,177 @@
+2022-02-28 22:08:49.403  INFO 18356 --- [main] c.e.C.CustomerServiceApplication         : Starting CustomerServiceApplication using Java 1.8.0_241 on MAVCHN1121375 with PID 18356 (C:\Users\vrushaliaj\Desktop\Springboot\Customer_Service\target\classes started by vrushaliaj in C:\Users\vrushaliaj\Desktop\Springboot)
+2022-02-28 22:08:49.410  INFO 18356 --- [main] c.e.C.CustomerServiceApplication         : No active profile set, falling back to default profiles: default
+2022-02-28 22:08:52.323  INFO 18356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-02-28 22:08:52.760  INFO 18356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 423 ms. Found 2 MongoDB repository interfaces.
+2022-02-28 22:08:53.586  INFO 18356 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=83088e6c-4eec-3f0f-a963-6bc2e5f21a8e
+2022-02-28 22:08:55.680  INFO 18356 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8061 (http)
+2022-02-28 22:08:55.704  INFO 18356 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-28 22:08:55.704  INFO 18356 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-28 22:08:56.133  INFO 18356 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-28 22:08:56.134  INFO 18356 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6525 ms
+2022-02-28 22:08:56.991  INFO 18356 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-02-28 22:08:57.333  INFO 18356 --- [cluster-rtt-ClusterId{value='621cfaa024c75e489e0c0fae', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:6}] to localhost:27017
+2022-02-28 22:08:57.337  INFO 18356 --- [cluster-ClusterId{value='621cfaa024c75e489e0c0fae', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:5}] to localhost:27017
+2022-02-28 22:08:57.361  INFO 18356 --- [cluster-ClusterId{value='621cfaa024c75e489e0c0fae', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=147963900}
+2022-02-28 22:08:57.552  WARN 18356 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-02-28 22:08:57.959  WARN 18356 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-02-28 22:08:58.489  WARN 18356 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'feignClientsConfiguration': Unsatisfied dependency expressed through field 'feignClientProperties'; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'feign.client-org.springframework.cloud.openfeign.FeignClientProperties': Could not bind properties to 'FeignClientProperties' : prefix=feign.client, ignoreInvalidFields=false, ignoreUnknownFields=true; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'feign.client.config.default.error-decoder' to java.lang.Class<feign.codec.ErrorDecoder>
+2022-02-28 22:08:58.493  WARN 18356 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'customerController': Unsatisfied dependency expressed through field 'customerServices'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'customerServices': Unsatisfied dependency expressed through field 'accountFeignClient'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'feignClientsConfiguration': Unsatisfied dependency expressed through field 'feignClientProperties'; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'feign.client-org.springframework.cloud.openfeign.FeignClientProperties': Could not bind properties to 'FeignClientProperties' : prefix=feign.client, ignoreInvalidFields=false, ignoreUnknownFields=true; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'feign.client.config.default.error-decoder' to java.lang.Class<feign.codec.ErrorDecoder>
+2022-02-28 22:08:58.504  INFO 18356 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-02-28 22:08:58.555  INFO 18356 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-02-28 22:08:58.626 ERROR 18356 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'feign.client.config.default.error-decoder' to java.lang.Class<feign.codec.ErrorDecoder>:
+
+    Property: feign.client.config.default.error-decoder
+    Value: com.example.demo.config.FeignErrorDecoder
+    Origin: class path resource [application.yaml] - 7:24
+    Reason: failed to convert java.lang.String to java.lang.Class<feign.codec.ErrorDecoder> (caused by java.lang.ClassNotFoundException: com.example.demo.config.FeignErrorDecoder)
+
+Action:
+
+Update your application's configuration
+
+2022-02-28 22:11:08.300  INFO 17404 --- [main] c.e.C.CustomerServiceApplication         : Starting CustomerServiceApplication using Java 1.8.0_241 on MAVCHN1121375 with PID 17404 (C:\Users\vrushaliaj\Desktop\Springboot\Customer_Service\target\classes started by vrushaliaj in C:\Users\vrushaliaj\Desktop\Springboot)
+2022-02-28 22:11:08.311  INFO 17404 --- [main] c.e.C.CustomerServiceApplication         : No active profile set, falling back to default profiles: default
+2022-02-28 22:11:10.969  INFO 17404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-02-28 22:11:11.406  INFO 17404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 421 ms. Found 2 MongoDB repository interfaces.
+2022-02-28 22:11:12.183  INFO 17404 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=83088e6c-4eec-3f0f-a963-6bc2e5f21a8e
+2022-02-28 22:11:13.899  INFO 17404 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8061 (http)
+2022-02-28 22:11:13.926  INFO 17404 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-28 22:11:13.927  INFO 17404 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-28 22:11:14.394  INFO 17404 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-28 22:11:14.395  INFO 17404 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5914 ms
+2022-02-28 22:11:15.227  INFO 17404 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-02-28 22:11:15.433  INFO 17404 --- [cluster-ClusterId{value='621cfb2b9012385ccea6a849', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:8}] to localhost:27017
+2022-02-28 22:11:15.435  INFO 17404 --- [cluster-ClusterId{value='621cfb2b9012385ccea6a849', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=73012100}
+2022-02-28 22:11:15.444  INFO 17404 --- [cluster-rtt-ClusterId{value='621cfb2b9012385ccea6a849', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:7}] to localhost:27017
+2022-02-28 22:11:15.617  WARN 17404 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-02-28 22:11:15.978  WARN 17404 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-02-28 22:11:16.590  WARN 17404 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'feignClientsConfiguration': Unsatisfied dependency expressed through field 'feignClientProperties'; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'feign.client-org.springframework.cloud.openfeign.FeignClientProperties': Could not bind properties to 'FeignClientProperties' : prefix=feign.client, ignoreInvalidFields=false, ignoreUnknownFields=true; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'feign.client.config.default.error-decoder' to java.lang.Class<feign.codec.ErrorDecoder>
+2022-02-28 22:11:16.594  WARN 17404 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'customerController': Unsatisfied dependency expressed through field 'customerServices'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'customerServices': Unsatisfied dependency expressed through field 'accountFeignClient'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'feignClientsConfiguration': Unsatisfied dependency expressed through field 'feignClientProperties'; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'feign.client-org.springframework.cloud.openfeign.FeignClientProperties': Could not bind properties to 'FeignClientProperties' : prefix=feign.client, ignoreInvalidFields=false, ignoreUnknownFields=true; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'feign.client.config.default.error-decoder' to java.lang.Class<feign.codec.ErrorDecoder>
+2022-02-28 22:11:16.606  INFO 17404 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-02-28 22:11:16.651  INFO 17404 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-02-28 22:11:16.705 ERROR 17404 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'feign.client.config.default.error-decoder' to java.lang.Class<feign.codec.ErrorDecoder>:
+
+    Property: feign.client.config.default.error-decoder
+    Value: com.example.demo.config.MyErrorDecoder
+    Origin: class path resource [application.yaml] - 7:24
+    Reason: failed to convert java.lang.String to java.lang.Class<feign.codec.ErrorDecoder> (caused by java.lang.ClassNotFoundException: com.example.demo.config.MyErrorDecoder)
+
+Action:
+
+Update your application's configuration
+
+2022-02-28 22:12:52.232  INFO 11376 --- [main] c.e.C.CustomerServiceApplication         : Starting CustomerServiceApplication using Java 1.8.0_241 on MAVCHN1121375 with PID 11376 (C:\Users\vrushaliaj\Desktop\Springboot\Customer_Service\target\classes started by vrushaliaj in C:\Users\vrushaliaj\Desktop\Springboot)
+2022-02-28 22:12:52.244  INFO 11376 --- [main] c.e.C.CustomerServiceApplication         : No active profile set, falling back to default profiles: default
+2022-02-28 22:12:54.734  INFO 11376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-02-28 22:12:55.131  INFO 11376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 384 ms. Found 2 MongoDB repository interfaces.
+2022-02-28 22:12:55.907  INFO 11376 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=83088e6c-4eec-3f0f-a963-6bc2e5f21a8e
+2022-02-28 22:12:57.640  INFO 11376 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8061 (http)
+2022-02-28 22:12:57.670  INFO 11376 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-28 22:12:57.671  INFO 11376 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-28 22:12:58.103  INFO 11376 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-28 22:12:58.104  INFO 11376 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5697 ms
+2022-02-28 22:12:58.878  INFO 11376 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-02-28 22:12:59.095  INFO 11376 --- [cluster-rtt-ClusterId{value='621cfb92b9cae2502db2e89a', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:9}] to localhost:27017
+2022-02-28 22:12:59.097  INFO 11376 --- [cluster-ClusterId{value='621cfb92b9cae2502db2e89a', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:10}] to localhost:27017
+2022-02-28 22:12:59.099  INFO 11376 --- [cluster-ClusterId{value='621cfb92b9cae2502db2e89a', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=70228500}
+2022-02-28 22:12:59.260  WARN 11376 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-02-28 22:12:59.636  WARN 11376 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-02-28 22:13:00.181  WARN 11376 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'feignClientsConfiguration': Unsatisfied dependency expressed through field 'feignClientProperties'; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'feign.client-org.springframework.cloud.openfeign.FeignClientProperties': Could not bind properties to 'FeignClientProperties' : prefix=feign.client, ignoreInvalidFields=false, ignoreUnknownFields=true; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'feign.client.config.default.error-decoder' to java.lang.Class<feign.codec.ErrorDecoder>
+2022-02-28 22:13:00.186  WARN 11376 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'customerController': Unsatisfied dependency expressed through field 'customerServices'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'customerServices': Unsatisfied dependency expressed through field 'accountFeignClient'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'feignClientsConfiguration': Unsatisfied dependency expressed through field 'feignClientProperties'; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'feign.client-org.springframework.cloud.openfeign.FeignClientProperties': Could not bind properties to 'FeignClientProperties' : prefix=feign.client, ignoreInvalidFields=false, ignoreUnknownFields=true; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'feign.client.config.default.error-decoder' to java.lang.Class<feign.codec.ErrorDecoder>
+2022-02-28 22:13:00.197  INFO 11376 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-02-28 22:13:00.259  INFO 11376 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-02-28 22:13:00.318 ERROR 11376 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'feign.client.config.default.error-decoder' to java.lang.Class<feign.codec.ErrorDecoder>:
+
+    Property: feign.client.config.default.error-decoder
+    Value: com.example.Customer_Service.config.MyErrorDecoder
+    Origin: class path resource [application.yaml] - 7:24
+    Reason: failed to convert java.lang.String to java.lang.Class<feign.codec.ErrorDecoder> (caused by java.lang.NoClassDefFoundError: com/example/Customer_Service/config/MyErrorDecoder (wrong name: com/example/Customer_Service/Config/MyErrorDecoder))
+
+Action:
+
+Update your application's configuration
+
+2022-02-28 22:16:54.572  INFO 8916 --- [main] c.e.C.CustomerServiceApplication         : Starting CustomerServiceApplication using Java 1.8.0_241 on MAVCHN1121375 with PID 8916 (C:\Users\vrushaliaj\Desktop\Springboot\Customer_Service\target\classes started by vrushaliaj in C:\Users\vrushaliaj\Desktop\Springboot)
+2022-02-28 22:16:54.582  INFO 8916 --- [main] c.e.C.CustomerServiceApplication         : No active profile set, falling back to default profiles: default
+2022-02-28 22:16:57.213  INFO 8916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-02-28 22:16:57.632  INFO 8916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 405 ms. Found 2 MongoDB repository interfaces.
+2022-02-28 22:16:58.478  INFO 8916 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=83088e6c-4eec-3f0f-a963-6bc2e5f21a8e
+2022-02-28 22:17:00.314  INFO 8916 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8061 (http)
+2022-02-28 22:17:00.349  INFO 8916 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-28 22:17:00.350  INFO 8916 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-28 22:17:00.759  INFO 8916 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-28 22:17:00.760  INFO 8916 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6003 ms
+2022-02-28 22:17:01.592  INFO 8916 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-02-28 22:17:01.823  INFO 8916 --- [cluster-ClusterId{value='621cfc855ecaf2493dd42cfd', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:12}] to localhost:27017
+2022-02-28 22:17:01.824  INFO 8916 --- [cluster-ClusterId{value='621cfc855ecaf2493dd42cfd', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=70510200}
+2022-02-28 22:17:01.824  INFO 8916 --- [cluster-rtt-ClusterId{value='621cfc855ecaf2493dd42cfd', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:11}] to localhost:27017
+2022-02-28 22:17:01.970  WARN 8916 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-02-28 22:17:02.317  WARN 8916 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-02-28 22:17:03.122  INFO 8916 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'Account' URL not provided. Will try picking an instance via load-balancing.
+2022-02-28 22:17:05.745  INFO 8916 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 215c6806-39d8-484b-903e-3ac598864d22
+
+2022-02-28 22:17:06.144  INFO 8916 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoint(s) beneath base path '/actuator'
+2022-02-28 22:17:06.244  INFO 8916 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@b3fc6d8, org.springframework.security.web.context.SecurityContextPersistenceFilter@cfd5cd2, org.springframework.security.web.header.HeaderWriterFilter@63de4fa, org.springframework.web.filter.CorsFilter@12e5d3e1, org.springframework.security.web.csrf.CsrfFilter@10bf1ec9, org.springframework.security.web.authentication.logout.LogoutFilter@7cb29ea8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2475fba3, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6b6def36, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@5ed31735, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@349f0ca4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6d7740f0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1de7f898, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2fb082ff, org.springframework.security.web.session.SessionManagementFilter@18907af2, org.springframework.security.web.access.ExceptionTranslationFilter@7ad889be, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@18026052]
+2022-02-28 22:17:07.459  INFO 8916 --- [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2022-02-28 22:17:07.605  WARN 8916 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-02-28 22:17:07.681  INFO 8916 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-02-28 22:17:07.883  INFO 8916 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-02-28 22:17:07.905  INFO 8916 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-02-28 22:17:07.990  INFO 8916 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-02-28 22:17:07.991  INFO 8916 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-02-28 22:17:07.992  INFO 8916 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-02-28 22:17:07.992  INFO 8916 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-02-28 22:17:07.993  INFO 8916 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-02-28 22:17:07.993  INFO 8916 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-02-28 22:17:07.993  INFO 8916 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-02-28 22:17:09.762  INFO 8916 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-02-28 22:17:09.769  INFO 8916 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-02-28 22:17:09.776  INFO 8916 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-02-28 22:17:09.788  INFO 8916 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1646066829786 with initial instances count: 0
+2022-02-28 22:17:09.792  INFO 8916 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application CUSTOMER_ACCOUNT with eureka with status UP
+2022-02-28 22:17:09.793  INFO 8916 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1646066829793, current=UP, previous=STARTING]
+2022-02-28 22:17:09.799  INFO 8916 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CUSTOMER_ACCOUNT/MAVCHN1121375.mavericsystems.lan:Customer_Account:8061: registering service...
+2022-02-28 22:17:09.872  INFO 8916 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8061 (http) with context path ''
+2022-02-28 22:17:09.876  INFO 8916 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8061
+2022-02-28 22:17:10.299  INFO 8916 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CUSTOMER_ACCOUNT/MAVCHN1121375.mavericsystems.lan:Customer_Account:8061 - registration status: 204
+2022-02-28 22:17:10.884  INFO 8916 --- [main] c.e.C.CustomerServiceApplication         : Started CustomerServiceApplication in 19.175 seconds (JVM running for 20.49)
+2022-02-28 22:17:39.780  INFO 8916 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-02-28 22:17:39.781  INFO 8916 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-02-28 22:17:39.781  INFO 8916 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-02-28 22:17:39.782  INFO 8916 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-02-28 22:17:39.782  INFO 8916 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-02-28 22:17:39.783  INFO 8916 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2022-02-28 22:17:39.784  INFO 8916 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-02-28 22:17:39.824  INFO 8916 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
